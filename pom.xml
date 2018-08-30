@@ -13,6 +13,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+	<!-- The deploy:deploy Mojo : In most cases, this mojo is invoked when you call the deploy phase of the default build lifecycle.
+
+	To enable this mojo to function, you must include a valid <distributionManagement/> section POM, which at the minimum provides a <repository/> defining the remote repository location for your artifact. 		To separate snapshot artifacts from release artifacts, you can also specify a <snapshotRepository/> location. Finally, to deploy a project website, you must specify a <site/> section here as well. 
+	It's also important to note that this section can be inherited, allowing you to specify the deployment location one time for a set of related projects.
+
+	-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>artifactory</id>
+            <name>artifactory</name>
+            <url>${artifactory_url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
